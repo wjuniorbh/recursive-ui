@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { DynamicComponent } from './modules/dynamic/dynamic.component';
+import { DynamicModule } from './modules/dynamic/dynamic.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,7 @@ import { DynamicComponent } from './modules/dynamic/dynamic.component';
   ],
   imports: [
     BrowserModule,
-    DynamicComponent
+    DynamicModule
   ],
   providers: [],
   bootstrap: [AppComponent]
