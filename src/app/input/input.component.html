@@ -1,0 +1,7 @@
+<label for="">{{ attribute.key }}</label>
+
+<input class="form-control"
+    [attr.disabled]="isDisabled()"
+    [class.field-error]="hasError(attribute.key)"
+    [type]="obterTipoCampo()"
+    [(ngModel)]="attribute.value">

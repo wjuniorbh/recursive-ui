@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AttributeModel } from './model/attribute.model';
 import { AppService } from './service/app.service';
+import { AttributeModel } from './modules/dynamic/model/attribute.model';
 
 @Component({
   selector: 'app-root',
