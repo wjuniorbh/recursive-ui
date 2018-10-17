@@ -41,7 +41,12 @@ export class DynamicComponent implements OnInit {
   }
 
   getType(): Type<any> {
-    let found = this.config.mapping.find(key => key.name == this.attribute.type)
+    if (!this.attribute) {
+      throw new Error(`The attribute cannot be null.`);
+    }
+
+    let found = this.config.mapping
+      .find(key => key.name.toUpperCase() == this.attribute.type.toUpperCase())
 
     this.validate(found);
 
