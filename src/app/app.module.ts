@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DynamicModule } from './modules/dynamic/dynamic.module';
-import { DynamicItemDirective } from './modules/dynamic/dynamic-item.directive';
 import { InputComponent } from './input/input.component';
 import { DynamicItemConfig } from './modules/dynamic/model/dynamic-item-config';
 import { SectionComponent } from './section/section.component';
