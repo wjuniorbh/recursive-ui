@@ -3,23 +3,20 @@ import { AttributeModel } from "./model/attribute.model";
 import { AttributeService } from "./service/attribute.service";
 
 export abstract class DynamicItem {
-    @Input()  
-    attribute: AttributeModel
-    @Input()
-    secao: string
+    @Input() attribute: AttributeModel
+    @Input() section: AttributeModel
+    @Input() parent: AttributeModel
     helper: AttributeService
-    @Input()
-    atributoPai: AttributeModel
   
     constructor() {
       this.helper = new AttributeService()
     }
 
-    setMascara(): string {
+    getMask(): string {
       return new AttributeService().getMask(this.attribute)
     }
   
-    obterTipoCampo(): string {
+    getComponentType(): string {
         switch (this.attribute.type) {
         case "text": {
           return "text"
@@ -50,7 +47,7 @@ export abstract class DynamicItem {
     }
   
     isSelect() {
-      return this.obterTipoCampo() == "select"
+      return this.getComponentType() == "select"
     }
   
     isInput() {
@@ -83,8 +80,8 @@ export abstract class DynamicItem {
         return this.attribute.type == "booleanExclusive";
     }
   
-    getCamposSelect() {
-        if (this.obterTipoCampo() == "select") {
+    getOptionsSelect() {
+        if (this.getComponentType() == "select") {
             return this.attribute.attributes;
         }
     }
@@ -102,8 +99,8 @@ export abstract class DynamicItem {
     }
   
     onChangedExclusiva(checked: boolean) {
-        for (const irmao of this.atributoPai.attributes) {
-        irmao.value = "no";
+        for (const irmao of this.parent.attributes) {
+          irmao.value = "no";
         }
         this.attribute.value = (checked === true) ? "yes" : "no";
     }

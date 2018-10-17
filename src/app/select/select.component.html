@@ -5,5 +5,5 @@
     [class.field-error]="hasError(attribute.key)" 
     (change)="onChangedSelect(selectd.value)" 
     [(ngModel)]="attribute.value" >
-    <option *ngFor="let option of getCamposSelect()" >{{ option.key }}</option>
+    <option *ngFor="let option of getOptionsSelect()" >{{ option.key }}</option>
 </select> 

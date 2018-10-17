@@ -12,8 +12,9 @@ import { DynamicItemMapping } from './model/dynamic-item-mapping';
 })
 export class DynamicComponent implements OnInit {
 
-  @Input()
-  attribute: AttributeModel
+  @Input() attribute: AttributeModel
+  @Input() parent: AttributeModel
+  @Input() section: AttributeModel
 
   @ViewChild(DynamicItemDirective) 
   itemHost: DynamicItemDirective;
@@ -33,7 +34,10 @@ export class DynamicComponent implements OnInit {
     let viewContainerRef = this.itemHost.viewContainerRef;
 
     let componentRef = viewContainerRef.createComponent(componentFactory);
-    (<DynamicItem>componentRef.instance).attribute = this.attribute;
+    let refInstance = (<DynamicItem>componentRef.instance)
+    refInstance.attribute = this.attribute;
+    refInstance.parent = this.parent;
+    refInstance.section = this.section;
   }
 
   getType(): Type<any> {
