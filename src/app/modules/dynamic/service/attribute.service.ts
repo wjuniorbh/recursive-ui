@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AttributeModel } from '../model/attribute.model';
 import { OptionModel } from '../model/option.model';
+import { TypeEnum } from '../model/type.enum';
+import { OptionsEnum } from '../model/options.enum';
+import { MaskEnum } from '../model/mask.enum';
+import { SizeEnum } from '../model/size.enum';
 
 @Injectable({
   providedIn: 'root'

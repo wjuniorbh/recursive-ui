@@ -1,9 +1,9 @@
-const enum TypeEnum {
-    yes = "yes",
-    no = "no",
-    dynamicGroup = "dynamicGroup",
-    booleanConditional = "booleanConditional",
-    boolean = "boolean",
-    section = "section",
-    groupTitle = "groupTitle"
+export const enum TypeEnum {
+    yes = "Yes",
+    no = "No",
+    dynamicGroup = "DynamicGroup",
+    booleanConditional = "BooleanConditional",
+    boolean = "Boolean",
+    section = "Section",
+    groupTitle = "GroupTitle"
 }

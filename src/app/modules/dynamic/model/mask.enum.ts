@@ -1,4 +1,4 @@
-const enum MaskEnum {
+export const enum MaskEnum {
     cnpj = "99.999.999/9999-99",
     cpf = "999.999.999-99",
     cep = "99999-999",

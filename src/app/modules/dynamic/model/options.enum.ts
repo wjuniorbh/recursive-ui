@@ -1,4 +1,4 @@
-const enum OptionsEnum {
+export const enum OptionsEnum {
     required = "Required",
     editable = "Editable",
     mask = "Mask",
