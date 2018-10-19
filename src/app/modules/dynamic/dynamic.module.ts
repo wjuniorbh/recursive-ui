@@ -4,6 +4,7 @@ import { DynamicComponent } from './dynamic.component';
 import { DynamicItemConfig } from './model/dynamic-item-config';
 import { DynamicItemConfigService } from './service/dynamic-item-config.service';
 import { DynamicItemDirective } from './dynamic-item.directive';
+import { AttributeService } from './service/attribute.service';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ export class DynamicModule {
     return {
       ngModule: DynamicModule,
       providers: [
+        AttributeService,
         {
           provide: DynamicItemConfigService,
           useValue: config
