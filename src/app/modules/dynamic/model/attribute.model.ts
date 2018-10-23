@@ -6,4 +6,9 @@ export class AttributeModel {
     type: string
     options?: OptionModel[]
     attributes?: AttributeModel[]
+
+    constructor() {
+        this.options = []
+        this.attributes = []
+    }
 }

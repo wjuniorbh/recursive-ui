@@ -121,23 +121,36 @@ export class AttributeService {
     copyWithoutValue(attribute: AttributeModel): AttributeModel {
         let novo = this.copyBase(attribute)
         novo.value = null
-        attribute.attributes.forEach(a => {
-            novo.attributes.push(this.copyWithoutValue(a))
-        })
-        attribute.options.forEach(a => {
-            novo.options.push(this.copyOption(a))
-        })
+        
+        if(attribute.attributes) {
+            attribute.attributes.forEach(a => {
+                novo.attributes.push(this.copyWithoutValue(a))
+            })
+        }
+
+        if(attribute.options) {
+            attribute.options.forEach(a => {
+                novo.options.push(this.copyOption(a))
+            })
+        }        
+        
         return novo
     }
 
     copy(attribute: AttributeModel): AttributeModel {
         let novo = this.copyBase(attribute)
-        attribute.attributes.forEach(a => {
-            novo.attributes.push(this.copy(a))
-        })
-        attribute.options.forEach(a => {
-            novo.options.push(this.copyOption(a))
-        })
+
+        if(attribute.attributes) {
+            attribute.attributes.forEach(a => {
+                novo.attributes.push(this.copy(a))
+            })
+        }
+        
+        if(attribute.options) {
+            attribute.options.forEach(a => {
+                novo.options.push(this.copyOption(a))
+            })
+        }
         return novo
     }
 
@@ -160,7 +173,7 @@ export class AttributeService {
     withoutValues(attribute: AttributeModel): boolean {
         if (attribute.value != undefined && attribute.value != "") {
             return false
-        } else {
+        } else if(attribute.attributes) {
             for (const child of attribute.attributes) {
                 if (!this.withoutValues(child)) {
                     return false

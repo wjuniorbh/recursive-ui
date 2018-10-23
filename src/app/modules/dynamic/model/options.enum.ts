@@ -3,5 +3,6 @@ export const enum OptionsEnum {
     editable = "Editable",
     mask = "Mask",
     size = "Size",
-    image = "Image"
+    image = "Image",
+    summary = "Summary"
 }
