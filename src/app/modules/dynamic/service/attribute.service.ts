@@ -106,6 +106,12 @@ export class AttributeService {
         }
     }
 
+    hasOption(attribute: AttributeModel, key: string, value: any): boolean {
+        let opt = this.getOptionBy(attribute, key)
+
+        return (opt && opt.value.toLowerCase() == String(value).toLowerCase())
+    }
+
     isGroup(attribute: AttributeModel): boolean {
         switch (attribute.type) {
             case "Agrupador":
