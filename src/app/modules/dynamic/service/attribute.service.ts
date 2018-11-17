@@ -102,7 +102,7 @@ export class AttributeService {
 
     getOptionBy(attribute: AttributeModel, key: string): OptionModel {
         if(attribute.options) {
-            return attribute.options.find(a => a.key == key)
+            return attribute.options.find(a => a.key.toLowerCase() == key.toLowerCase())
         }
     }
 
