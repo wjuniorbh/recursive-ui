@@ -100,8 +100,10 @@ export class AttributeService {
         return ""
     }
 
-    private getOptionBy(attribute: AttributeModel, key: string): OptionModel {
-        return attribute.options.find(a => a.key == key)
+    getOptionBy(attribute: AttributeModel, key: string): OptionModel {
+        if(attribute.options) {
+            return attribute.options.find(a => a.key == key)
+        }
     }
 
     isGroup(attribute: AttributeModel): boolean {
