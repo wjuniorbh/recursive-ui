@@ -2,6 +2,9 @@
 <div style="text-align:center">
   <app-dynamic 
     *ngFor="let attribute of attributes"
-    [attribute]="attribute">
+    [attribute]="attribute"
+    (onEmit)="getEmitted($event)">
   </app-dynamic>
+
+  <h2>{{ emittedValue }}</h2>
 </div>

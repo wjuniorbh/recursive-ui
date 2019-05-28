@@ -3,6 +3,7 @@
     section works!
   </h3>
   <app-dynamic *ngFor='let item of attribute.attributes'
-    [attribute]='item'>
+    [attribute]='item'
+    (onEmit)="reEmit($event)">
   </app-dynamic>
 </div>

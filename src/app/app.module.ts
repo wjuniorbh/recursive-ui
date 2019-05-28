@@ -8,19 +8,25 @@ import { InputComponent } from './input/input.component';
 import { DynamicItemConfig } from './modules/dynamic/model/dynamic-item-config';
 import { SectionComponent } from './section/section.component';
 import { SelectComponent } from './select/select.component';
+import { ButtonComponent } from './button/button.component';
 
-const dynamicItemConfig = new DynamicItemConfig()
-dynamicItemConfig.addMap('text', InputComponent)
-dynamicItemConfig.addMap('number', InputComponent)
-dynamicItemConfig.addMap('collection', SelectComponent)
-dynamicItemConfig.addMap('section', SectionComponent)
+const dynamicItemConfig: DynamicItemConfig = {
+  mapping: [
+    { name: 'text', component: InputComponent},
+    { name: 'number', component: InputComponent },
+    { name: 'collection', component: SelectComponent },
+    { name: 'section', component: SectionComponent },
+    { name: 'button', component: ButtonComponent }
+  ]
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
     SectionComponent,
-    SelectComponent
+    SelectComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,7 @@ dynamicItemConfig.addMap('section', SectionComponent)
     DynamicModule.forRoot(dynamicItemConfig)
   ],
   providers: [],
-  entryComponents: dynamicItemConfig.getTypes(),
+  entryComponents: dynamicItemConfig.mapping.map(m => m.component),
   bootstrap: [AppComponent]
 })
 export class AppModule { }

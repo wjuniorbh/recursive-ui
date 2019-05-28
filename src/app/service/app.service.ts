@@ -38,6 +38,11 @@ export class AppService {
               type: 'option'
             }
           ]
+        },
+        {
+          key: "Enviar dados",
+          value: "Dados enviados",
+          type: "button"
         }
       ]
     }

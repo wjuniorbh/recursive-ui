@@ -6,13 +6,13 @@ import { DynamicItem } from '../modules/dynamic/dynamic-item';
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.css']
 })
-export class SectionComponent extends DynamicItem implements OnInit {
+export class SectionComponent extends DynamicItem {
 
   constructor() { 
     super()
   }
 
-  ngOnInit() {
+  reEmit(event: any) {
+    this.onEmit.emit(event)
   }
-
 }

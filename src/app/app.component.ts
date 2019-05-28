@@ -10,10 +10,15 @@ import { AttributeModel } from './modules/dynamic/model/attribute.model';
 export class AppComponent implements OnInit {
   
   attributes: AttributeModel[]
+  emittedValue: string
 
   constructor(private appService: AppService) {}
 
   ngOnInit(): void {
     this.attributes = this.appService.getElements()
+  }
+
+  getEmitted(event: AttributeModel) {
+    this.emittedValue = event.value
   }
 }
