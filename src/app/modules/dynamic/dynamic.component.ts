@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver, Inject, Type } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver, Inject, Type, Output, EventEmitter } from '@angular/core';
 import { DynamicItemDirective } from './dynamic-item.directive';
 import { AttributeModel } from './model/attribute.model';
 import { DynamicItemConfigService } from './service/dynamic-item-config.service';
 import { DynamicItemConfig } from './model/dynamic-item-config';
 import { DynamicItem } from './dynamic-item';
 import { DynamicItemMapping } from './model/dynamic-item-mapping';
+import { OptionModel } from './model/option.model';
 
 @Component({
   selector: 'app-dynamic',
@@ -13,8 +14,10 @@ import { DynamicItemMapping } from './model/dynamic-item-mapping';
 export class DynamicComponent implements OnInit {
 
   @Input() attribute: AttributeModel
-  @Input() parent: AttributeModel
   @Input() section: AttributeModel
+  @Input() parent: AttributeModel
+  @Input() envOptions: OptionModel[] = []
+  @Output() onEmit: EventEmitter<any> = new EventEmitter()
 
   @ViewChild(DynamicItemDirective) 
   itemHost: DynamicItemDirective;
@@ -38,6 +41,8 @@ export class DynamicComponent implements OnInit {
     refInstance.attribute = this.attribute;
     refInstance.parent = this.parent;
     refInstance.section = this.section;
+    refInstance.envOptions = this.envOptions;
+    refInstance.onEmit = this.onEmit;
   }
 
   getType(): Type<any> {

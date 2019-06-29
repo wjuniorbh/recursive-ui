@@ -1,8 +1,6 @@
 <select
     #selectd
     class="form-control"
-    [attr.disabled]="isDisabled()" 
-    [class.field-error]="hasError(attribute.key)" 
     (change)="onChangedSelect(selectd.value)" 
     [(ngModel)]="attribute.value" >
     <option *ngFor="let option of getOptionsSelect()" >{{ option.key }}</option>

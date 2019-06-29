@@ -1,7 +1,5 @@
 <label for="">{{ attribute.key }}</label>
 
 <input class="form-control"
-    [attr.disabled]="isDisabled()"
-    [class.field-error]="hasError(attribute.key)"
-    [type]="getComponentType()"
+    type="text"
     [(ngModel)]="attribute.value">

@@ -15,4 +15,7 @@ export class ButtonComponent extends DynamicItem implements OnInit {
   ngOnInit() {
   }
 
+  emit() {
+    this.onEmit.emit(this.attribute)
+  }
 }
